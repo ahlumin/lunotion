@@ -1,14 +1,85 @@
 body{
+	font-family:"Microsoft JhengHei";
+    line-height:30px;
+}
+
+header{
+    display:block;
+    width:810px;
+    height:75px;
+    margin:0 auto;
+}
+
+    header img{
+        width:91px;
+        height:75px;
+        padding:0 15px;
+    }
+
+    header span{
+        display:inline-block;
+        font-weight:bolder;
+        font-size:36px;
+        vertical-align:top;
+        line-height:75px;
+    }
+
+.waterfall{
+    display:block;
+    width:780px;
+    height:100%;
+    margin:0 auto;
+    padding:0 15px;
+}
+
+.artical{
+    float:left;
 	width:100%;
+    margin:15px 0 30px 0;
+    word-break:break-all;
+}
+    .artical .rdmore, .collapse{
+        font-size:16px;
+        color:dimgrey;
+        word-break:break-all;
+        cursor:pointer;
+    }
+
+    .artical img{
+        display:block;
+        max-width:100%;
+        margin:5px auto;
+    }
+
+    .artical .tags{
+        margin-top:15px;
+    }
+
+        .artical .tags li{
+            float:left;
+            margin-right:15px;
+            margin-bottom:5px;
+            padding:5px;
+            line-height:20px;
+            background-color:#87CEFA;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+.content{
+    clear:both;
+    display:none;
 }
 
-h1{
-	font-size:200%;
-	font-family:bolder;
+.tl{
+    font-weight:bolder;
+    font-size:20px;
+    display:block;
 }
 
-.thebox{
-	margin:250px auto;
-	width:246px;
+.date{
+    font-size:12px;
+    color:dimgrey;
+    line-height:10px;
 }
 
