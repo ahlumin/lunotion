@@ -1,12 +1,13 @@
-﻿
-<html>
+﻿<html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
         <script src="contents/articals.json"></script>
+        <script src="action/vue.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="action/act.js"></script>
+
     </head>
     <body style="height:5000px">
 
@@ -16,69 +17,51 @@
         </header>
 
         <div class="waterfall">
-
-            <div class="artical">
-                <span class="tl">Hello World La!! 什麼喇</span> <!--標題-->
-                <span class="date">2016-10-25</span> <!--時間-->
-                <img src='images/hidapi.jpg' /> <!--cover-->
-                <p>一呵呵呵呵呵啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩</p>
-                <a class="rdmore">《read more》</a>
-                <ul class="tags">
-                    <li>aaa</li>
-                    <li>bbbb</li>
-                    <li>ccccc</li>
-                    <li>dddddd</li>
-                    <li>eeeeeee</li>
-                    <li>ffffffff</li>
-                    <li>ggggggggg</li>
-                    <li>hhhhhhhhhh</li>
-                    <li>iiiiiiiiiii</li>
-                    <li>jjjjjjjjjjjj</li>
-                    <li>kkkkkkk</li>
-                </ul>
-                <div class="content">
-                    <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文</p>
-                    <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文</p>
-                    <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文</p>
-                    <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文</p>
-                    <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文</p>
-                    <a class="collapse">《collapse》</a>
-                </div>
-            </div>
-
-
-
-
-            <div class="artical">
-                <span class="tl">Hello World La!! 什麼喇</span>
-                <span class="date">2016-10-25</span>
-                <img src='images/mw.jpg' />
-                <p>一呵呵呵呵呵啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩啊哩</p>
-                <a class="rdmore">《read more》</a>
-                <ul class="tags">
-                    <li>aaa</li>
-                    <li>bbbb</li>
-                    <li>ccccc</li>
-                    <li>dddddd</li>
-                    <li>eeeeeee</li>
-                    <li>ffffffff</li>
-                    <li>ggggggggg</li>
-                    <li>hhhhhhhhhh</li>
-                    <li>iiiiiiiiiii</li>
-                    <li>jjjjjjjjjjjj</li>
-                    <li>kkkkkkk</li>
-                </ul>
-                <div class="content">
-                    <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文</p>
-                    <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文</p>
-                    <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文</p>
-                    <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文</p>
-                    <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文</p>
-                    <a class="collapse">《collapse》</a>
-                </div>
-            </div>
-
+            <my-artical v-for="one in data" v-bind:artical="one"></my-artical>
         </div>
+
+        <div class="lightpad"></div>
+
+        <script type="text/x-template" id="artical-template">
+            <div class="artical">
+                <span class="tl">{{artical.title}}</span> <!--標題-->
+                <span class="date">{{artical.date}}</span> <!--時間-->
+                <img v-bind:src="artical.cover"/> <!--cover-->
+                <p v-html="artical.summary"></p><!--描述-->
+                <tags-btn v-bind:taglist="artical.tags"></tags-btn>
+                <readmore-btn></readmore-btn>
+                <div class="content">
+                    <content-template v-bind:paragraph="artical.content"></content-template>
+                    <collapse-btn></collapse-btn>
+                </div>
+            </div>
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </body>
 </html>
