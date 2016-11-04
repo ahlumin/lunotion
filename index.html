@@ -3,11 +3,10 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
-        <script src="contents/articals.json"></script>
         <script src="action/vue.min.js"></script>
+        <script src="source/js/data.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="action/act.js"></script>
-
+        <script src="action/app.js"></script>
     </head>
     <body style="height:5000px">
 
@@ -21,45 +20,6 @@
         </div>
 
         <div class="lightpad"></div>
-
-        <script type="text/x-template" id="artical-template">
-            <div class="artical">
-                <span class="tl">{{artical.title}}</span> <!--標題-->
-                <span class="date">{{artical.date}}</span> <!--時間-->
-                <img v-bind:src="artical.cover"/> <!--cover-->
-                <p v-html="artical.summary"></p><!--描述-->
-                <tags-btn v-bind:taglist="artical.tags"></tags-btn>
-                <readmore-btn></readmore-btn>
-                <div class="content">
-                    <content-template v-bind:paragraph="artical.content"></content-template>
-                    <collapse-btn></collapse-btn>
-                </div>
-            </div>
-        </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
