@@ -1,11 +1,15 @@
 <template>
   <div class="main">
-    123
     <div class="centre">
       施工中
     </div>
   </div>
 </template>
+
+<script>
+  export default {
+  }
+</script>
 
 <style>
   .main{
