@@ -3,9 +3,8 @@
 const config = {
   context:path.resolve(__dirname, 'src'),
   entry:{
-    app:['main.js']
+    app:'./main'
   },
-
   output:{
     path:path.resolve(__dirname, 'dist'),
     filename:'[name].js'
@@ -13,9 +12,9 @@ const config = {
 
   resolve: {
     modules: [
-      path.resolve(__dirname, 'src'),
-      path.resolve(__dirname, 'src/components'),
-      path.resolve(__dirname, 'node_modules'),
+        path.resolve(__dirname, 'src'),
+        path.resolve(__dirname, 'src/components'),
+        path.resolve(__dirname, 'node_modules'),
     ],
     extensions: ['.js', '.vue'],
   },
